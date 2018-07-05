@@ -13,7 +13,7 @@ public class Anagram {
             reversedSentence.append(reversedWord).append(" ");
         }
 
-        return reversedSentence.toString();
+        return reversedSentence.toString().trim();
     }
 
     private StringBuilder reversWord(String word){
