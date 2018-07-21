@@ -5,13 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class AnagramTest {
-    private String nonLetterInTheBeginningOfTheWord;
-    private String nonLetterInTheEndOfTheWord;
-    private String nonLetterInTheMiddleOfTheWord;
-    private String nonLetterInTheBeginningAndInTheMiddleOfTheWord;
-    private String nonLetterInTheBeginningAndInTheEndOfTheWord;
-    private String nonLetterInTheMiddleAndInTheEndOfTheWord;
-    private String nonLettersTheBeginningInTheMiddleAndInTheEndOfTheWord;
+    private String nonLetterAtTheBeginningOfTheWord;
+    private String nonLetterAtTheEndOfTheWord;
+    private String nonLetterAtTheMiddleOfTheWord;
+    private String nonLetterAtTheBeginningAndAtTheMiddleOfTheWord;
+    private String nonLetterAtTheBeginningAndAtTheEndOfTheWord;
+    private String nonLetterAtTheMiddleAndAtTheEndOfTheWord;
+    private String nonLettersAtTheBeginningAtTheMiddleAndAtTheEndOfTheWord;
     private String onlyLetters;
     private String emptyWord;
     private String nullWord;
@@ -20,13 +20,13 @@ public class AnagramTest {
 
     @Before
     public void initialize() {
-        nonLetterInTheBeginningOfTheWord = "1abcd";
-        nonLetterInTheEndOfTheWord = "abcd1";
-        nonLetterInTheMiddleOfTheWord = "ab1cd";
-        nonLetterInTheBeginningAndInTheMiddleOfTheWord = "1ab1cd";
-        nonLetterInTheBeginningAndInTheEndOfTheWord = "1abcd1";
-        nonLetterInTheMiddleAndInTheEndOfTheWord = "ab1cd1";
-        nonLettersTheBeginningInTheMiddleAndInTheEndOfTheWord = "1ab1cd1";
+        nonLetterAtTheBeginningOfTheWord = "1abcd";
+        nonLetterAtTheEndOfTheWord = "abcd1";
+        nonLetterAtTheMiddleOfTheWord = "ab1cd";
+        nonLetterAtTheBeginningAndAtTheMiddleOfTheWord = "1ab1cd";
+        nonLetterAtTheBeginningAndAtTheEndOfTheWord = "1abcd1";
+        nonLetterAtTheMiddleAndAtTheEndOfTheWord = "ab1cd1";
+        nonLettersAtTheBeginningAtTheMiddleAndAtTheEndOfTheWord = "1ab1cd1";
         onlyLetters = "abcd";
         emptyWord = "";
         nullWord = null;
@@ -34,66 +34,72 @@ public class AnagramTest {
     }
 
     @Test
-    public void NonLetterInTheBeginningOfTheWordShouldStayInItsPlace() {
+    public void nonLetterMustRemainAtTheBeginning_WhenWordForReverseWithNonLetterAtTheBeginning() {
         String expected = "1dcba";
-        reverseWord(nonLetterInTheBeginningOfTheWord, expected);
+        String result = anagram.reversSentence(nonLetterAtTheBeginningOfTheWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void NonLetterInTheEndOfTheWordShouldStayInItsPlace() {
+    public void nonLetterMustRemainAtTheEnd_WhenWordForReverseWithNonLetterAtTheEnd() {
         String expected = "dcba1";
-        reverseWord(nonLetterInTheEndOfTheWord, expected);
+        String result = anagram.reversSentence(nonLetterAtTheEndOfTheWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void NonLetterInTheMiddleOfTheWordShouldStayInItsPlace() {
+    public void nonLetterMustRemainAtTheMiddle_WhenWordForReverseWithNonLetterAtTheMiddle() {
         String expected = "dc1ba";
-        reverseWord(nonLetterInTheMiddleOfTheWord, expected);
+        String result = anagram.reversSentence(nonLetterAtTheMiddleOfTheWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void NonLettersInTheBeginningAndInTheMiddleOfTheWordShouldStayInItsPlace() {
+    public void nonLettersMustRemainAtTheBeginningAndAtTheMiddle_WhenWordForReverseWithNonLetterAtTheBeginningAndAtTheMiddle() {
         String expected = "1dc1ba";
-        reverseWord(nonLetterInTheBeginningAndInTheMiddleOfTheWord, expected);
+        String result = anagram.reversSentence(nonLetterAtTheBeginningAndAtTheMiddleOfTheWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void NonLettersInTheBeginningAndInTheEndOfTheWordShouldStayInItsPlace() {
+    public void nonLettersMustRemainAtTheBeginningAndAtTheEnd_WhenWordForReverseWithNonLetterAtTheBeginningAndAtTheEnd() {
         String expected = "1dcba1";
-        reverseWord(nonLetterInTheBeginningAndInTheEndOfTheWord, expected);
+        String result = anagram.reversSentence(nonLetterAtTheBeginningAndAtTheEndOfTheWord);
+        Assert.assertEquals(expected,result);
 }
 
     @Test
-    public void NonLettersInTheMiddleAndInTheEndOfTheWordShouldStayInItsPlace() {
+    public void nonLettersMustRemainAtTheMiddleAndAtTheEnd_WhenWordForReverseWithNonLetterAtTheMiddleAndAtTheEnd() {
         String expected = "dc1ba1";
-        reverseWord(nonLetterInTheMiddleAndInTheEndOfTheWord, expected);
+        String result = anagram.reversSentence(nonLetterAtTheMiddleAndAtTheEndOfTheWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void NonLettersTheBeginningInTheMiddleAndInTheEndOfTheWordShouldStayInItsPlace() {
+    public void nonLettersMustRemainAtTheBeginningAtTheMiddleAndAtTheEnd_WhenWordForReverseWithNonLetterAtTheBeginningAtTheMiddleAndAtTheEnd() {
         String expected = "1dc1ba1";
-        reverseWord(nonLettersTheBeginningInTheMiddleAndInTheEndOfTheWord, expected);
+        String result = anagram.reversSentence(nonLettersAtTheBeginningAtTheMiddleAndAtTheEndOfTheWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
     public void wordShouldBeReverse() {
         String expected = "dcba";
-        reverseWord(onlyLetters, expected);
+        String result = anagram.reversSentence(onlyLetters);
+        Assert.assertEquals(expected,result);
     }
 
     @Test
     public void shouldBeEmpty() {
         String expected = "";
-        reverseWord(emptyWord, expected);
+        String result = anagram.reversSentence(emptyWord);
+        Assert.assertEquals(expected,result);
     }
 
     @Test(expected = NullPointerException.class)
     public void shouldThrowNullPointExeption() {
+        String expected = null;
         String result = anagram.reversSentence(nullWord);
-    }
-
-    private void reverseWord(String word, String expected){
-        String result = anagram.reversSentence(word);
         Assert.assertEquals(expected,result);
     }
 }
