@@ -83,23 +83,22 @@ public class AnagramTest {
     }
 
     @Test
-    public void wordShouldBeReverse() {
+    public void wordShouldBeReverse_WhenWordForReverseWithoutNonLetters() {
         String expected = "dcba";
         String result = anagram.reversSentence(onlyLetters);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void shouldBeEmpty() {
+    public void shouldBeEmpty_WhenWordForReverseIsEmpty() {
         String expected = "";
         String result = anagram.reversSentence(emptyWord);
         Assert.assertEquals(expected,result);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void shouldThrowNullPointExeption() {
-        String expected = null;
+    @Test
+    public void shouldBeNull_WhenWordForReverseIsNull() {
         String result = anagram.reversSentence(nullWord);
-        Assert.assertEquals(expected,result);
+        Assert.assertNull(result);
     }
 }

@@ -5,6 +5,9 @@ import java.util.TreeMap;
 
 public class Anagram {
     public String reversSentence(String sentence){
+        if(sentence == null)
+            return null;
+
         String words [] = sentence.split(" ");
         StringBuilder reversedSentence = new StringBuilder();
 
