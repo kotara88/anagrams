@@ -34,70 +34,70 @@ public class AnagramTest {
     }
 
     @Test
-    public void nonLetterMustRemainAtTheBeginning_WhenWordForReverseWithNonLetterAtTheBeginning() {
+    public void nonLetterMustRemainAtTheBeginning_WhenWordToReverseWithNonLetterAtTheBeginning() {
         String expected = "1dcba";
         String result = anagram.reversSentence(nonLetterAtTheBeginningOfTheWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void nonLetterMustRemainAtTheEnd_WhenWordForReverseWithNonLetterAtTheEnd() {
+    public void nonLetterMustRemainAtTheEnd_WhenWordToReverseWithNonLetterAtTheEnd() {
         String expected = "dcba1";
         String result = anagram.reversSentence(nonLetterAtTheEndOfTheWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void nonLetterMustRemainAtTheMiddle_WhenWordForReverseWithNonLetterAtTheMiddle() {
+    public void nonLetterMustRemainAtTheMiddle_WhenWordToReverseWithNonLetterAtTheMiddle() {
         String expected = "dc1ba";
         String result = anagram.reversSentence(nonLetterAtTheMiddleOfTheWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void nonLettersMustRemainAtTheBeginningAndAtTheMiddle_WhenWordForReverseWithNonLetterAtTheBeginningAndAtTheMiddle() {
+    public void nonLettersMustRemainAtTheBeginningAndAtTheMiddle_WhenWordToReverseWithNonLetterAtTheBeginningAndAtTheMiddle() {
         String expected = "1dc1ba";
         String result = anagram.reversSentence(nonLetterAtTheBeginningAndAtTheMiddleOfTheWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void nonLettersMustRemainAtTheBeginningAndAtTheEnd_WhenWordForReverseWithNonLetterAtTheBeginningAndAtTheEnd() {
+    public void nonLettersMustRemainAtTheBeginningAndAtTheEnd_WhenWordToReverseWithNonLetterAtTheBeginningAndAtTheEnd() {
         String expected = "1dcba1";
         String result = anagram.reversSentence(nonLetterAtTheBeginningAndAtTheEndOfTheWord);
         Assert.assertEquals(expected,result);
 }
 
     @Test
-    public void nonLettersMustRemainAtTheMiddleAndAtTheEnd_WhenWordForReverseWithNonLetterAtTheMiddleAndAtTheEnd() {
+    public void nonLettersMustRemainAtTheMiddleAndAtTheEnd_WhenWordToReverseWithNonLetterAtTheMiddleAndAtTheEnd() {
         String expected = "dc1ba1";
         String result = anagram.reversSentence(nonLetterAtTheMiddleAndAtTheEndOfTheWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void nonLettersMustRemainAtTheBeginningAtTheMiddleAndAtTheEnd_WhenWordForReverseWithNonLetterAtTheBeginningAtTheMiddleAndAtTheEnd() {
+    public void nonLettersMustRemainAtTheBeginningAtTheMiddleAndAtTheEnd_WhenWordToReverseWithNonLetterAtTheBeginningAtTheMiddleAndAtTheEnd() {
         String expected = "1dc1ba1";
         String result = anagram.reversSentence(nonLettersAtTheBeginningAtTheMiddleAndAtTheEndOfTheWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void wordShouldBeReverse_WhenWordForReverseWithoutNonLetters() {
+    public void wordShouldBeReverse_WhenWordToReverseWithoutNonLetters() {
         String expected = "dcba";
         String result = anagram.reversSentence(onlyLetters);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void shouldBeEmpty_WhenWordForReverseIsEmpty() {
+    public void shouldBeEmpty_WhenWordToReverseIsEmpty() {
         String expected = "";
         String result = anagram.reversSentence(emptyWord);
         Assert.assertEquals(expected,result);
     }
 
     @Test
-    public void shouldBeNull_WhenWordForReverseIsNull() {
+    public void shouldReturnNull_WhenWordToReverseIsNull() {
         String result = anagram.reversSentence(nullWord);
         Assert.assertNull(result);
     }
